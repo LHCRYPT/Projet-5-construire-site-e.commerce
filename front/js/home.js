@@ -1,5 +1,23 @@
-//console.log('coucou');
-let template=document.querySelector('#produit');
+let url = "http://localhost:3000/api/products/";
+fetch(url)
+.then(response=>response.json())
+.then(data=>{
+    for(let p of data){ 
+    let template=document.querySelector('#produit');
+    let items=document.querySelector('#items');
+    // Clone the new row and insert it into the table
+    let clone = template.content.cloneNode(true);
+    //je viens alimenter la div items avec le template
+    let nom=p.name;
+    clone.querySelector('.productName').innerHTML=nom;
+    clone.querySelector('.imgName').setAttribute('src',p.imageUrl);
+   
+    clone.querySelector('.productDescription').innerHTML=p.description;
+    items.appendChild(clone);
+}
+});
+
+/* let template=document.querySelector('#produit');
 let items=document.querySelector('#items');
 // Clone the new row and insert it into the table
 let clone = template.content.cloneNode(true);
@@ -16,9 +34,11 @@ function Products(pic,name,price){
     this.price = price
 }
 
+const product1 = new Products('images/kanap01.jpeg', 'canapé bleu', 70);
+
 //array tableau pour enregistrer une liste de produits
 let products = [];
 
-products.push(product,product2);
+products.push(product1,product2);
 
-console.log(products[1].name);
+console.log(products[1].pic); */
