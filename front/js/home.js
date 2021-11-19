@@ -16,7 +16,8 @@ fetch(url)
     items.appendChild(clone);
 }
 });
-
+/* Tu reçois qu'un objet et non un tableau d'objet
+Donc pas besoin de foreach! tu peux directement utiliser un element dans ton html
 const recover = (elements) => {
     elements.forEach(element => {
         console.log(element);
@@ -30,8 +31,9 @@ const recover = (elements) => {
             </div>
         </div>
     });
-}
-/* let template=document.querySelector('#produit');
+}*/
+
+/*let template=document.querySelector('#produit');
 let items=document.querySelector('#items');
 // Clone the new row and insert it into the table
 let clone = template.content.cloneNode(true);
@@ -56,3 +58,46 @@ let products = [];
 products.push(product1,product2);
 
 console.log(products[1].pic); */
+
+
+//plan qui détaille le produit nom des produits et leurs prix
+
+
+let product = {
+
+
+    name : "kanap01",
+
+
+    price : 55
+
+
+};
+
+ 
+
+let product2 = {
+
+
+    name : "kanap01",
+
+
+    price : 65
+
+
+};
+
+ 
+
+//array tableau pour enregistrer une liste de produits
+
+
+let products = [];
+
+ 
+
+products.push(product,product2);
+
+ 
+
+console.log(products[1].name);
