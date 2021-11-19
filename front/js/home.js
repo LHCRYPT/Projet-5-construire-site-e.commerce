@@ -17,6 +17,20 @@ fetch(url)
 }
 });
 
+const recover = (elements) => {
+    elements.forEach(element => {
+        console.log(element);
+        document.querySelector(".row").innerHTML +=
+        <div class="col">
+            <div class="card align-self-start" style="width: 18rem;">
+                <img width="100%" src=' §{element.imageUrl} '>
+                    <div class="card-body">
+                        <p> §{element.name} </p> ><p> §{element.price/100} euros </p> §{element.description} </p>
+                    </div>
+            </div>
+        </div>
+    });
+}
 /* let template=document.querySelector('#produit');
 let items=document.querySelector('#items');
 // Clone the new row and insert it into the table
