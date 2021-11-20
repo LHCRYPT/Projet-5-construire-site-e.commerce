@@ -65,39 +65,21 @@ console.log(products[1].pic); */
 
 let product = {
 
-
     name : "kanap01",
-
-
     price : 55
-
-
 };
-
  
-
 let product2 = {
 
-
     name : "kanap01",
-
-
     price : 65
 
-
 };
-
- 
 
 //array tableau pour enregistrer une liste de produits
 
-
 let products = [];
 
- 
-
 products.push(product,product2);
-
- 
 
 console.log(products[1].name);
