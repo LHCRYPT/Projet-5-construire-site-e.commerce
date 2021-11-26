@@ -19,9 +19,10 @@ fetch(url)
     document.querySelector('#title').innerHTML=product.name;
     document.querySelector('#price').innerHTML=product.price;
     document.querySelector('#image').setAttribute('src',product.imageUrl);
-    //faire ici le déroulé avec les différentes couleurs
-    //document.querySelector('#color').innerHTML=product.color;
-   document.querySelector('#color').setAttribute('src',product.color);
+    //le déroulé avec les différentes couleurs
+     document.querySelector('#color').setAttribute('src',product.color);
+     //pour ajouter la quantité
+    // EST CE QU IL FAUT LE METTRE CA CHANGE RIEN : j ai effacé la partie html id="itemQuantity" : document.querySelector('#itemQuantity').setAttribute('src',product.itemQuantity);
    //pour ajouter le produit dans le panier
    document.querySelector('#addToCart').setAttribute('src',product.addToCart);
    
