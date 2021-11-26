@@ -20,5 +20,6 @@ fetch(url)
     document.querySelector('#price').innerHTML=product.price;
     document.querySelector('#image').setAttribute('src',product.imageUrl);
     //faire ici le déroulé avec les différentes couleurs
-    document.querySelector('#color-select').setAttribute('src',product.color-select);
+    //document.querySelector('#color').innerHTML=product.color;
+   document.querySelector('#color').setAttribute('src',product.color);
 });
