@@ -19,5 +19,6 @@ fetch(url)
     document.querySelector('#title').innerHTML=product.name;
     document.querySelector('#price').innerHTML=product.price;
     document.querySelector('#image').setAttribute('src',product.imageUrl);
-    //faire ici le déroulé avec kes différentes couleurs
+    //faire ici le déroulé avec les différentes couleurs
+    document.querySelector('#color-select').setAttribute('src',product.color-select);
 });
