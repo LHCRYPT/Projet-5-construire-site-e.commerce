@@ -22,4 +22,7 @@ fetch(url)
     //faire ici le déroulé avec les différentes couleurs
     //document.querySelector('#color').innerHTML=product.color;
    document.querySelector('#color').setAttribute('src',product.color);
+   //pour ajouter le produit dans le panier
+   document.querySelector('#addToCart').setAttribute('src',product.addToCart);
+   
 });
