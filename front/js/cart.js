@@ -1,0 +1,1 @@
+//récupérer le tableau depuis local storage et l'afficher avec boucle for each
