@@ -42,16 +42,40 @@ let color = document.querySelector('#color').value;
 console.log(id);
 console.log(color);
 
+
+// créer un panier
+// on stocke
+let panier = ['rouge','bleu','violet'];
+console.log(panier);
+// on transforme en chaine de carac.
+let str = JSON.stringify(panier)
+console.log(str);
+//localStorage.toto .. = ... 
+localStorage.tableau = str;
+
+let panier = [];
+	// verifier si il y a qlq chose
+	if (localStorage != undefined)
+	{
+		let str = localStorage.tableau;
+		// on transforme la chaine de caractere en VRAI array ou tablea
+		panier = JSON.parse(str);
+	}
+	console.log(panier);
+
 //faire un push dans un tableau : produit couleur prix quantité
-let tableau = ['rouge','bleu','violet'];
+let tableau = ['Kanap sinopé','bleu','1849', '1'];
 	console.log(tableau);
-	// ajouter 1 couleur
-	tableau[3]='blanc';
-	console.log(tableau);
+	
+ let tableau   
 	// for each  pour déplier ou afficher le tableau
 	for ( let color of tableau)
 	{
 		console.log(color);
+
+ 
+
+
 }
 let personne = {};  //je crée un objet personne;
 	// attributs ce sont les variables d'un  obejet
