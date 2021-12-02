@@ -41,11 +41,47 @@ document.querySelector('#addToCart').onclick = function()
 let color = document.querySelector('#color').value;
 console.log(id);
 console.log(color);
+
 //faire un push dans un tableau : produit couleur prix quantité
+let tableau = ['rouge','bleu','violet'];
+	console.log(tableau);
+	// ajouter 1 couleur
+	tableau[3]='blanc';
+	console.log(tableau);
+	// for each  pour déplier ou afficher le tableau
+	for ( let color of tableau)
+	{
+		console.log(color);
+}
+let personne = {};  //je crée un objet personne;
+	// attributs ce sont les variables d'un  obejet
+	personne.nom = 'MOI'; // je definie un attribut non et sa valeur
+	personne.prenom = 'Linda';
+	personne.adresse = '32 rue du Paradis' ;
+    personne.ville = 'grenoble';
+    personne.email = 'linda.moi@toujours.fr';
 
 
+	tabPersonnes.push(personne);
+
+	let p ={ nom:'MOI',prenom:'Linda',adresse:'32 rue du Paradis' ,ville:'grenoble' ,email: 'linda.moi@toujours.fr' };
+	tabPersonnes.push(p);
+
+	console.log(tabPersonnes);
+
+	// afficher les personnes 
+	for ( let people of tabPersonnes)
+	{
+		console.log(people.prenom+' '+people.nom);
+		let demo = document.querySelector('#demo');
+		let p = document.createElement('p'); // <p></p>
+		p.innerHTML = people.prenom+' '+people.nom; // <p> Linda MOI</p>
+		// je met p dans la div
+		demo.appendChild(p);
+	}
 //puis stocké sur local storage ce tableau
+
+
  //window.location = 'cart.html'; //redirige vers la page html
 
 
-}
