@@ -49,3 +49,12 @@ let panier = [];
  }*/
 
  //cibler les balises pour créer tableau html
+ {
+	//on pose toutes les variables dont on aura besoin
+	var arrayLignes = document.getElementById("tableau").rows;
+	var Produit = new Produit();
+	var Produit = date.getProduit();
+	var Color = date.getColor()+1;
+	var Quantity = date.getQuantity();
+	var i=1;//car la première ligne correspond à thead
+}
