@@ -19,6 +19,15 @@ fetch(url)
 }
 });
 
+	//On recupere le chemin complet
+	let chemin = window.location.href;
+	// on decoupe la chaine de caractere en tableau au du =
+	let tableau = chemin.split('=');
+	// tableau[0] = 'cart.html?id'
+	// tableau[1] = '1234'
+	let id = tableau[1];
+	console.log(id);
+
 //récupérer le tableau depuis local storage et l'afficher avec boucle for each
 //lire local storage
 
@@ -31,14 +40,12 @@ let panier = [];
 		panier = JSON.parse(str);
 	}
 
-let tableau   
+/*let tableau   
 	// for each  pour déplier ou afficher le tableau
 	for ( let color of tableau)
 	{
 		console.log(color);
 
- }
+ }*/
 
  //cibler les balises pour créer tableau html
-
- 
