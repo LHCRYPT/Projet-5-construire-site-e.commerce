@@ -58,7 +58,7 @@ document.querySelector('#addToCart').onclick = function()
 	// verifier s'il y a qlq chose
 	if (localStorage.panier != undefined)
 	{
-		let str = localStorage.tableau;
+		let str = localStorage.panier;
 		// on transforme la chaine de caractere en VRAI array ou tableau
 		panier = JSON.parse(str);
 	}
@@ -68,4 +68,6 @@ document.querySelector('#addToCart').onclick = function()
 	console.log(str);
 	//localStorage.t = ... 
 	localStorage.panier = str;
+    //aller à la page html panier
+    window.location = 'cart.html';
 }    

@@ -1,3 +1,4 @@
+/*
 let url = "http://localhost:3000/api/products/";
 fetch(url)
 .then(response=>response.json())
@@ -27,7 +28,7 @@ fetch(url)
 	// tableau[1] = '1234'
 	let id = tableau[1];
 	console.log(id);
-
+*/
 //récupérer le tableau depuis local storage et l'afficher avec boucle for each
 //lire local storage
 
@@ -35,26 +36,28 @@ let panier = [];
 	// verifier s'il y a qlq chose
 	if (localStorage.panier != undefined)
 	{
-		let str = localStorage.tableau;
+		let str = localStorage.panier;
 		// on transforme la chaine de caractere en VRAI array ou tableau
 		panier = JSON.parse(str);
 	}
 
-/*let tableau   
+  let emplacement = document.querySelector('#cart__items'); // sélecteur sur la zone de dépôt
+  let template = document.querySelector('#template'); //sélecteur sur le template
+
 	// for each  pour déplier ou afficher le tableau
-	for ( let color of tableau)
+	for ( let line of panier)
 	{
-		console.log(color);
+		console.log(line); 
+        // on clone le template
+        let clone = template.content.cloneNode(true);
+        //on ajoute les infos de l'article : quantité, couleur etc A FAIRE 
+        clone.querySelector('h2').innerHTML = line.product.name;
+        clone.querySelector('img').setAttribute('src', line.product.imageUrl); // <img src="code ici"
+        
+        //afficher le prix, l'id, quantité + total
+        clone.querySelector('.prix').innerHTML = line.product.price;
+        // multiplier le prix par la quantité
+        // on ajoute le clone à la zone de dépôt/emplacement
+        emplacement.appendChild(clone);
 
- }*/
-
- //cibler les balises pour créer tableau html
- {
-	//on pose toutes les variables dont on aura besoin
-	var arrayLignes = document.getElementById("tableau").rows;
-	var Produit = new Produit();
-	var Produit = date.getProduit();
-	var Color = date.getColor()+1;
-	var Quantity = date.getQuantity();
-	var i=1;//car la première ligne correspond à thead
-}
+ }
