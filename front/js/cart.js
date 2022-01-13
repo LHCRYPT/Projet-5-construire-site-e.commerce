@@ -35,9 +35,9 @@ let panier = [];
         nbArticle = nbArticle + parseInt (line.quantity);
 
         //afficher le prix, quantité + total
-        clone.querySelector('.prix').innerHTML = sum + 'euros';
+        clone.querySelector('.prix').innerHTML = sum + ' €';
         
-
+        
         clone.querySelector('.color').innerHTML = line.color;
         clone.querySelector('.itemQuantity').value = line.quantity;
         //on stocke l'indice dans un attribut sur le bouton, je veus savoir sur quelle ligne je suis
@@ -50,19 +50,36 @@ let panier = [];
             //enregistrer dans le local storage
             localStorage.panier = JSON.stringify(panier);
         } 
-        
+        //on vient mettre l'indice du tableau sur le champ input quantité (on ajoute ou supprime des qtés au panier)
+        clone.querySelector('.itemQuantity').setAttribute ('data-indice', indice);
+        clone.querySelector('.itemQuantity').onchange = function (){
+            console.log(this.value);
+            //on vient mettre la nouvelle qté de la ligne 
+            let i = this.getAttribute('data-indice');
+            panier[i].quantity = this.value;
+            afficherPanier();
+            //enregistrer dans le local storage
+            localStorage.panier = JSON.stringify(panier);
+        } 
+                  
+          
         indice++;
        
-        //travail à faire : le client doit pouvoir changer ses quantités sur la commande et la nouvelle qté doit apparaître dans le total : mettre une fonction sur le champ input 
-        //itemQuanity : mettre la fonction() onkeyup() + réafficher le tableau et l'enregistrer +stocker dans le local storage voir l 45 à 52
-
+   
         // on ajoute le clone à la zone de dépôt/emplacement
         emplacement.appendChild(clone);
 
  }
- //grand total faire une variable total et la mettre à 0
+ 
+
+ //grand total 
 document.getElementById ('totalPrice').innerHTML = total;
 // nbr total d'articles achetés par un même client
 document.getElementById ('totalQuantity').innerHTML = nbArticle;
 } 
 afficherPanier ();
+
+function envoyer(){
+    //récupérer nom/prénom... getelementby...afficher dans consol log...méthode fetch pour envoyer données
+    window.location = 'confirmation.html';
+}
