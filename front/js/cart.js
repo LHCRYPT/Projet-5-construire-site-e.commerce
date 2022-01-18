@@ -81,30 +81,6 @@ afficherPanier ();
 
 function envoyer(){
 
-    //méthode fetch pour envoyer les donnés FAIT PAR MOI
-    fetch(url)
-.then(response=>response.json())
-.then(lastName=>{
-     console.log(product);
-     nom = lastName; //mémorise le nom
-    
-    document.querySelector('#lastName').innerHTML=lastName;
-    document.querySelector('#firstName').innerHTML=firstName;
-    document.querySelector('#address').setAttribute('src',product.imageUrl);
-    //récupérer nom/prénom... getelementby...afficher dans consol log...méthode fetch pour envoyer données FAIT PAR MOI
-    clone.querySelector('.lastName').setAttribute ('data-indice', indice);
-    clone.querySelector('.lastName').onclick = function (){
-    console.log(this.value);
-
-    afficherPanier();
-    //enregistrer dans le local storage
-    localStorage.panier = JSON.stringify(panier);
-    document.getElementById ('lastName').innerHTML = nom;
-    document.getElementById ('firstName').innerHTML = prénom;
-    document.getElementById ('address').innerHTML = adress;
-    document.getElementById ('city').innerHTML = ville;
-    document.getElementById ('email').innerHTML = mail;
-    afficherPanier ();
-}
+   
     window.location = 'confirmation.html';
 }
