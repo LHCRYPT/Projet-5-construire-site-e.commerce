@@ -81,12 +81,18 @@ afficherPanier ();
 
 function envoyer(){
     //récupérer nom/prénom... getelementby...afficher dans consol log...méthode fetch pour envoyer données
-
+    clone.querySelector('.lastName').setAttribute ('data-indice', indice);
+    clone.querySelector('.lastName').onclick = function (){
     console.log(this.value);
 
     afficherPanier();
     //enregistrer dans le local storage
     localStorage.panier = JSON.stringify(panier);
+    document.getElementById ('lastName').innerHTML = nom;
+    document.getElementById ('firstName').innerHTML = prénom;
+    document.getElementById ('address').innerHTML = adress;
+    document.getElementById ('city').innerHTML = ville;
+    document.getElementById ('email').innerHTML = mail;
 }
     window.location = 'confirmation.html';
 }
