@@ -80,7 +80,17 @@ document.getElementById ('totalQuantity').innerHTML = nbArticle;
 afficherPanier ();
 
 function envoyer(){
-    //récupérer nom/prénom... getelementby...afficher dans consol log...méthode fetch pour envoyer données
+    //méthode fetch pour envoyer les donnés FAIT PAR MOI
+    fetch(url)
+.then(response=>response.json())
+.then(product=>{
+     console.log(product);
+     produit = product; //mémorise le produit
+    
+    document.querySelector('#title').innerHTML=product.name;
+    document.querySelector('#price').innerHTML=product.price;
+    document.querySelector('#image').setAttribute('src',product.imageUrl);
+    //récupérer nom/prénom... getelementby...afficher dans consol log...méthode fetch pour envoyer données FAIT PAR MOI
     clone.querySelector('.lastName').setAttribute ('data-indice', indice);
     clone.querySelector('.lastName').onclick = function (){
     console.log(this.value);
@@ -93,6 +103,7 @@ function envoyer(){
     document.getElementById ('address').innerHTML = adress;
     document.getElementById ('city').innerHTML = ville;
     document.getElementById ('email').innerHTML = mail;
+    afficherPanier ();
 }
     window.location = 'confirmation.html';
 }
