@@ -81,5 +81,12 @@ afficherPanier ();
 
 function envoyer(){
     //récupérer nom/prénom... getelementby...afficher dans consol log...méthode fetch pour envoyer données
+
+    console.log(this.value);
+
+    afficherPanier();
+    //enregistrer dans le local storage
+    localStorage.panier = JSON.stringify(panier);
+}
     window.location = 'confirmation.html';
 }
