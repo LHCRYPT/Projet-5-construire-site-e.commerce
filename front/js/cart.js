@@ -7,6 +7,22 @@ let panier = [];
 		panier = JSON.parse(str);
 	}
 
+    //fonction qui va chercher le prix actualisé de chaque marchandise du panier
+function getPrix (id){ 
+    return new Promise(
+        (resolve) => {
+            let url ='http://localhost:3000/api/products/'+id; 
+            fetch(url)
+            .then(response=>response.json())
+            .then(product=>{
+                //comme un return pour mettre à jour le prix
+                resolve(product.price);
+            });
+        }
+
+    );
+}
+
      //afficher le panier
      function afficherPanier () {
 
@@ -77,7 +93,22 @@ document.getElementById ('totalPrice').innerHTML = total;
 // nbr total d'articles achetés par un même client
 document.getElementById ('totalQuantity').innerHTML = nbArticle;
 } 
-afficherPanier ();
+
+//mettre à jour le prix pour chaque ligne
+async function majPrix (){
+    for (let line of panier){
+        getPrix (line.product._id).then((prix)=> {
+            console.log (prix);
+            //là je mets ici le prix dans le panier
+        });
+    } 
+} 
+majPrix ().then(()=> {
+    console.log ('abc');
+    afficherPanier ();
+});
+
+
 
 function envoyer(){
 
