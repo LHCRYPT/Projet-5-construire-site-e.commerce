@@ -101,6 +101,8 @@ async function majPrix (){
             console.log (prix);
             //là je mets ici le prix dans le panier
             clone.querySelector('.prix').innerHTML = sum + ' €'; //ce que j'ai AJOUTE
+            //afficher le panier
+            afficherPanier ();
         });
     } 
 } 
