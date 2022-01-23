@@ -100,6 +100,7 @@ async function majPrix (){
         getPrix (line.product._id).then((prix)=> {
             console.log (prix);
             //là je mets ici le prix dans le panier
+            clone.querySelector('.prix').innerHTML = sum + ' €'; //ce que j'ai AJOUTE
         });
     } 
 } 
