@@ -101,8 +101,43 @@ async function majPrix (){
             console.log (prix);
             //là je mets ici le prix dans le panier
             clone.querySelector('.prix').innerHTML = sum + ' €'; //ce que j'ai AJOUTE
-            //afficher le panier
-            afficherPanier ();
+            //afficher le panier mettre là
+            function getPrix(id){
+                return new Promise(
+                    (resolve)=>
+                    {
+                        let url ='...'+id ;  
+                        // fetch(url)
+                        .then(response => response.json())
+                        .then( product => {
+                            resolve(product.price);
+                        })
+                        ///-----------------
+                        setTimeout(()=>{
+                            console.log("abc");
+                            resolve(id*2);
+                        },1000);
+                        ///-----------------
+                    });     
+            }
+        //------------------------------
+            // a deja cette fonction
+            function afficherPanier()
+            {
+                console.log('aaa');
+                console.log(panier);
+            }
+        //------------------------------
+        // fonction qui parcoure le panier et redemande les derniers prix
+        async function modif(){
+                for(let p of panier){
+                    getPrix(24).then( (info)=>{p.prix= info});
+                }
+            }
+        
+        modif().then(
+            ()=>afficherPanier()
+        );
         });
     } 
 } 
