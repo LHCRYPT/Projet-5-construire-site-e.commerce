@@ -106,7 +106,7 @@ async function majPrix (){
                 return new Promise(
                     (resolve)=>
                     {
-                        let url ='...'+id ;  
+                        let url ='http://localhost:3000/api/products/'+id ;  
                         // fetch(url)
                         .then(response => response.json())
                         .then( product => {
@@ -129,7 +129,11 @@ async function majPrix (){
             }
         //------------------------------
         // fonction qui parcoure le panier et redemande les derniers prix
-        
+        async function modif(){
+            for(let p of panier){
+                getPrix(24).then( (info)=>{p.prix= info});
+            }
+        }
         
         modif().then(
             ()=>afficherPanier()
