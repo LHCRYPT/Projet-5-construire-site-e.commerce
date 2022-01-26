@@ -129,11 +129,7 @@ async function majPrix (){
             }
         //------------------------------
         // fonction qui parcoure le panier et redemande les derniers prix
-        async function modif(){
-                for(let p of panier){
-                    getPrix(24).then( (info)=>{p.prix= info});
-                }
-            }
+        
         
         modif().then(
             ()=>afficherPanier()
