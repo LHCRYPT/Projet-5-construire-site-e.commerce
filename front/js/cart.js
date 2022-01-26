@@ -137,8 +137,8 @@ async function majPrix (){
         
         modif().then(
             ()=>afficherPanier()
-        );
-
+        });
+    }
 
 function envoyer(){
 
