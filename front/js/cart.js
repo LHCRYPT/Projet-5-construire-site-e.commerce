@@ -136,7 +136,7 @@ async function majPrix (){
             }
         
         modif().then(
-            ()=>afficherPanier()
+            ()=>afficherPanier());
         });
     }
 
@@ -144,4 +144,5 @@ function envoyer(){
 
    
     window.location = 'confirmation.html';
+}
 }
