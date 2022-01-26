@@ -108,7 +108,7 @@ async function majPrix (){
                     {
                         let url ='http://localhost:3000/api/products/'+id ;  
                         // fetch(url)
-                        .then(response => response.json())
+                        then(response => response.json()) //j'ai enlevé le . avant then car apparaissait SyntaxError: Unexpected token
                         .then( product => {
                             resolve(product.price);
                         })
