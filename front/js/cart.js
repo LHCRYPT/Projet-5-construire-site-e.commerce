@@ -106,7 +106,7 @@ async function majPrix (){
                 return new Promise(
                     (resolve)=>
                     {
-                        let url =`http://localhost:3000/api/products/${id}` ;  
+                        let url =`http://localhost:3000/api/products/'+id ; 
                         // fetch(url)
                         .then(response => response.json())
                         .then( product => {
