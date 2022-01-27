@@ -8,7 +8,7 @@ let panier = [];
 	}
 
     //fonction qui va chercher le prix actualisé de chaque marchandise du panier
-function getPrix (id){ 
+    async function getPrix (id){ 
     return new Promise(
         (resolve) => {
             let url ='http://localhost:3000/api/products/'+id; 
@@ -22,6 +22,19 @@ function getPrix (id){
 
     );
 }
+
+
+//------------------------------	
+async function rechercheAffiche ()
+{
+	for (let p of panier)
+	{
+		p.prix = await  getPrix(p.product._id);
+	}
+	afficherPanier();
+}	
+//------------------------------	
+
 
      //afficher le panier
      function afficherPanier () {
@@ -43,7 +56,7 @@ function getPrix (id){
         //on ajoute les infos de l'article : quantité, couleur etc A FAIRE 
         clone.querySelector('h2').innerHTML = line.product.name;
         clone.querySelector('img').setAttribute('src', line.product.imageUrl); // <img src="code ici"
-        let sum = line.product.price * line.quantity; // variable multiplier le prix par la quantité
+        let sum = line.prix * line.quantity; // variable multiplier le prix par la quantité
         // on ajoute le total de chaque ligne au total global
         total = total + sum ;
         //on additionne toutes les quantités commandées par le client et la fonction parseInt() va permettre de faire comprendre au pc que line.quantity est un nombre
@@ -93,56 +106,12 @@ document.getElementById ('totalPrice').innerHTML = total;
 // nbr total d'articles achetés par un même client
 document.getElementById ('totalQuantity').innerHTML = nbArticle;
 } 
-
-//mettre à jour le prix pour chaque ligne
-async function majPrix (){
-    for (let line of panier){
-        getPrix (line.product._id).then((prix)=> {
-            console.log (prix);
-            //là je mets ici le prix dans le panier
-            clone.querySelector('.prix').innerHTML = sum + ' €'; //ce que j'ai AJOUTE
-            //afficher le panier mettre là
-            function getPrix(id){
-                return new Promise(
-                    (resolve)=>
-                    {
-                        let url ='http://localhost:3000/api/products/'+id ;  
-                        // fetch(url)
-                        then(response => response.json()) //j'ai enlevé le . avant then car apparaissait SyntaxError: Unexpected token
-                        .then( product => {
-                            resolve(product.price);
-                        })
-                        ///-----------------
-                        setTimeout(()=>{
-                            console.log("abc");
-                            resolve(id*2);
-                        },1000);
-                        ///-----------------
-                    });     
-            }
-        //------------------------------
-            // a deja cette fonction
-            function afficherPanier()
-            {
-                console.log('aaa');
-                console.log(panier);
-            }
-        //------------------------------
-        // fonction qui parcoure le panier et redemande les derniers prix
-        async function modif(){
-                for(let p of panier){
-                    getPrix(24).then( (info)=>{p.prix= info});
-                }
-            }
-        
-        modif().then(
-            ()=>afficherPanier());
-        });
-    }
-
+    
+// A faire prendre les infos de la pers
 function envoyer(){
 
    
     window.location = 'confirmation.html';
 }
-}
+
+rechercheAffiche(); // c'est la fonction qui met à jour les prix
