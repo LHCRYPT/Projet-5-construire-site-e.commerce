@@ -1,3 +1,5 @@
 //récupérer n° local storage FAIT PAR MOI
 
-let numCommande =
+//let numCommande =
+
+var retrievedObject = localStorage.getItem('added-items');

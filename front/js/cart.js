@@ -136,4 +136,3 @@ function envoyer(){
          //aller à la page html panier
     window.location = 'confirmation.html';
 }
-}
