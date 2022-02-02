@@ -126,6 +126,7 @@ function envoyer(){
         document.getElementById ('address').innerHTML = adress;
         document.getElementById ('city').innerHTML = ville;
         document.getElementById ('email').innerHTML = mail;
+        }
         afficherPanier ();
          //aller à la page html panier
     window.location = 'confirmation.html';
