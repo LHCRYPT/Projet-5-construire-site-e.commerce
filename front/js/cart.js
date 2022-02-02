@@ -116,7 +116,7 @@ function envoyer(){
          console.log(product);
          nom = lastName; //mémorise le nom
         
-        let lastName = document.querySelector('#lastName').value;
+        //let lastName = document.querySelector('#lastName').value;
         document.querySelector('#firstName').innerHTML=firstName;
         document.querySelector('#address').setAttribute('src',product.imageUrl);
         //récupérer nom/prénom... getelementby...afficher dans consol log...méthode fetch pour envoyer données FAIT PAR MOI
@@ -136,5 +136,4 @@ function envoyer(){
          //aller à la page html panier
     window.location = 'confirmation.html';
 }
-
-rechercheAffiche(); // c'est la fonction qui met à jour les prix
+}
