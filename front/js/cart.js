@@ -112,7 +112,7 @@ function envoyer(){
        
         //let lastName = document.querySelector('#lastName').value;
         document.querySelector('#firstName').innerHTML=firstName;
-        document.querySelector('#address').setAttribute('src',product.imageUrl);
+        document.querySelector('#address').setAttribute('src', line.product.imageUrl); //???
         //récupérer nom/prénom... getelementby...afficher dans consol log...méthode fetch pour envoyer données FAIT PAR MOI
         clone.querySelector('.lastName').setAttribute ('data-indice', indice);
         clone.querySelector('.lastName').onclick = function (){
