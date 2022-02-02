@@ -109,13 +109,7 @@ document.getElementById ('totalQuantity').innerHTML = nbArticle;
     
 // A faire prendre les infos de la pers
 function envoyer(){
-
-    fetch(url)
-    .then(response=>response.json())
-    .then(lastName=>{
-         console.log(product);
-         nom = lastName; //mémorise le nom
-        
+       
         //let lastName = document.querySelector('#lastName').value;
         document.querySelector('#firstName').innerHTML=firstName;
         document.querySelector('#address').setAttribute('src',product.imageUrl);

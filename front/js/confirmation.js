@@ -3,4 +3,4 @@
 localStorage.panier = JSON.stringify(panier);
 //let numCommande =
 
-var retrievedObject = localStorage.getItem('panier-items');
+var retrievedObject = localStorage.getItem('orderId-items');
