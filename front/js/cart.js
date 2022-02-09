@@ -109,6 +109,21 @@ document.getElementById ('totalQuantity').innerHTML = nbArticle;
     
 // A faire prendre les infos de la pers
 function envoyer(){
+
+    contact:{
+        firstname: firstName.value,
+        lastname: lastName.value,
+        address: address.value,
+        city: city.value,
+        email: email.value,
+    },
+    let body ={};
+    body.contact ={};
+    body.contact.firstname ="document.getElementById ('lastName').innerHTML = nom;"
+    body.products =[];
+    body.products.push(...)
+    
+    fetch(url,)
        
 
 } 
