@@ -110,6 +110,16 @@ document.getElementById ('totalQuantity').innerHTML = nbArticle;
 // A faire prendre les infos de la pers
 function envoyer(){
 
+    let body ={};
+    body.contact ={};
+    body.contact.lastname ="document.getElementById ('lastName').innerHTML = Nom;"
+    body.contact.firstname ="document.getElementById ('firstName').innerHTML = Prénom;"
+    body.contact.address ="document.getElementById ('address').innerHTML = Adresse;"
+    body.contact.city ="document.getElementById ('city').innerHTML = Ville;"
+    body.contact.email ="document.getElementById ('email').innerHTML = Email;"
+    body.products =[];
+    body.products.push(...)
+
     contact:{
         firstname: firstName.value,
         lastname: lastName.value,
@@ -117,11 +127,7 @@ function envoyer(){
         city: city.value,
         email: email.value,
     },
-    let body ={};
-    body.contact ={};
-    body.contact.firstname ="document.getElementById ('lastName').innerHTML = nom;"
-    body.products =[];
-    body.products.push(...)
+
     
     fetch(url,)
        
