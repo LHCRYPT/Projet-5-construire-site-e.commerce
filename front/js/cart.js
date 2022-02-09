@@ -126,7 +126,7 @@ function envoyer(){
         address: address.value,
         city: city.value,
         email: email.value,
-    },
+    }
 
     
     fetch(url,)
