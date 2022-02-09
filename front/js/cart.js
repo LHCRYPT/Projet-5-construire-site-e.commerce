@@ -129,7 +129,10 @@ function envoyer(){
     }
 
     
-    fetch(url,)
+    fetch(url, options)
+        .then(res => res.json())
+        .then(res => console.log(res));
+        )
        
 
 } 
