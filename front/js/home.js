@@ -9,10 +9,10 @@ fetch(url)
     let clone = template.content.cloneNode(true);
     //je viens alimenter la div items avec le template
     let nom=p.name;
-    clone.querySelector('.productName').innerHTML=nom;
+    clone.querySelector('.productName').textContent=nom;
     clone.querySelector('.imgName').setAttribute('src',p.imageUrl);
    
-    clone.querySelector('.productDescription').innerHTML=p.description;
+    clone.querySelector('.productDescription').textContent=p.description;
     let href = './product.html?id='+p._id;
     clone.querySelector('.lien').setAttribute('href',href);
     items.appendChild(clone);

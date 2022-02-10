@@ -18,8 +18,8 @@ fetch(url)
      console.log(product);
      produit = product; //mémorise le produit
     
-    document.querySelector('#title').innerHTML=product.name;
-    document.querySelector('#price').innerHTML=product.price;
+    document.querySelector('#title').textContent=product.name;
+    document.querySelector('#price').textContent=product.price;
     document.querySelector('#image').setAttribute('src',product.imageUrl);
     //le déroulé avec les différentes couleurs
      let color = document.querySelector('#color');
@@ -29,13 +29,14 @@ fetch(url)
          //<option> </option> pour créer une balise option
         let option = document.createElement('option');
         //innerHtml : veut mettre à l'intérieur de la balise
-        option.innerHTML = c; //<option> bleu </option>
+        option.textContent = c; //<option> bleu </option>
         option.setAttribute('value',c); //<option value = "bleu"> bleu </option>
         color.appendChild(option); //on met la balise option dans la balise select id=color
      }
         
 });
 
+//fonction pour ajouter au panier
 document.querySelector('#addToCart').onclick = function()
 {
     //récupérer couleur nom etc
@@ -49,9 +50,11 @@ document.querySelector('#addToCart').onclick = function()
 
     let line = {};  //je crée un objet une ligne de commande;
 	// attributs ce sont les variables d'un  objet
-	line.product = produit; // je definie un attribut non et sa valeur
+	line.id = produit._id; // je definie un attribut id et sa valeur
+    line.name = produit.name;
 	line.color = color;
 	line.quantity = quantity;
+    line.imageUrl = produit.imageUrl;
   
 
     let panier = [];
@@ -62,8 +65,10 @@ document.querySelector('#addToCart').onclick = function()
 		// on transforme la chaine de caractere en VRAI array ou tableau
 		panier = JSON.parse(str);
 	}
+    //VERIFIEZ QUE LE CANAPE AVEC LA COULEUR N EST PAS DEJA DANS LE TABLEAU
+   //FAIRE BOUCLE FOR AVEC VARIABLE present=0 et bien je fais un push
     panier.push(line);
-    	// on transforme en chaine de carac.
+    // on transforme en chaine de carac.
 	let str = JSON.stringify(panier)
 	console.log(str);
 	//localStorage.t = ... 
