@@ -67,6 +67,14 @@ document.querySelector('#addToCart').onclick = function()
 	}
     //VERIFIEZ QUE LE CANAPE AVEC LA COULEUR N EST PAS DEJA DANS LE TABLEAU
    //FAIRE BOUCLE FOR AVEC VARIABLE present=0 et bien je fais un push
+   let color = ["un", "deux", "trois", "quatre"];
+   color.forEach((color) => {
+     console.log(color);
+     if (color === "1") {
+        color.shift();
+     }
+   });
+
     panier.push(line);
     // on transforme en chaine de carac.
 	let str = JSON.stringify(panier)
