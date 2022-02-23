@@ -126,7 +126,9 @@ async function rechercheAffiche() {
     afficherPanier();
 }
 faire la boucle for
-
+let _id = document.querySelector('#id');
+	        //pour dérouler le tableau, i=_id
+	        for (let i of product.id)
 
 body.products.push(...) ok pas supprimer
     
