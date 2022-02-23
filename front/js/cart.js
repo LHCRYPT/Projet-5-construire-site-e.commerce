@@ -115,8 +115,19 @@ function envoyer() {
         body.contact.city ="document.getElementById ('city').textContent = Ville;"
         body.contact.email ="document.getElementById ('email').textContent = Email;"
         body.products =[];
+
+    
        il faut parcourir le panier pour rajouter les id du produit 
+       //fonction qui parcourt le panier et qui demande et attends le id du produit  
+async function rechercheAffiche() {
+    for (let line of panier) {
+        line.product = await product._id(line.id);
+    }
+    afficherPanier();
+}
 faire la boucle for
+
+
 body.products.push(...) ok pas supprimer
     
         Il faut faire un POST avec fetch method: 'POST'
@@ -127,6 +138,9 @@ body.products.push(...) ok pas supprimer
      }*/  
 
 //Message d'erreur avec regex si erreur quand il indique son nom
+afficherPanier();
+            //enregistrer dans le local storage
+            localStorage.panier = JSON.stringify(panier);
 }
 
 rechercheAffiche();
