@@ -140,6 +140,50 @@ body.products.push(...) ok pas supprimer
      }*/  
 
 //Message d'erreur avec regex si erreur quand il indique son nom
+function test() {
+    try {
+         var regEx = /firstName|lastName/city;
+         var str = "number";
+         if(!regEx.test(str)) return null;
+         var a = new Array();
+         var result;
+         var o=0;
+         while((result = regEx.exec(str)) != null) {
+                 a.push(result.index+o);
+                 str=str.substr(result.index+result[0].length);
+                 o+=result.index+result[0].length;
+         }
+         return a;
+} catch(exp) {
+         alert(exp.message);
+}
+OU
+function verification(){
+ 
+	var nom = document.formulaire.lastName.value;
+	var prenom = document.formulaire.firstName.value;
+	var address = document.formulaire.address.value;
+	var mail = document.formulaire.email.value;
+ 
+	var Ermail = /^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/
+	var Erage = /[0-9]{3}/;
+ 
+	if(lastName == ""){
+		alert("Le nom saisi est incorrect");
+		return false;
+	}else if(firstName == ""){
+		alert("Le prénom saisi est incorrect");
+		return false;
+	}else if(address == ""){
+		alert("addresse incorrecte");
+		return false;
+	}else if(email == ""){
+		alert("l'Email est incorrect");
+		return false;
+	}
+	return true;
+}
+
 afficherPanier();
             //enregistrer dans le local storage
             localStorage.panier = JSON.stringify(panier);
