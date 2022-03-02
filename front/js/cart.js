@@ -104,43 +104,47 @@ function afficherPanier() {
     document.getElementById('totalQuantity').textContent = nbArticle;
 }
 
-// A faire prendre les infos de la pers
+//prendre les infos de la pers
 function envoyer() {
-    /*
-        let body ={};
-        body.contact ={};
-        body.contact.lastname ="document.getElementById ('lastName').textContent = Nom;"
-        body.contact.firstname ="document.getElementById ('firstName').textContent = Prénom;"
-        body.contact.address ="document.getElementById ('address').textContent = Adresse;"
-        body.contact.city ="document.getElementById ('city').textContent = Ville;"
-        body.contact.email ="document.getElementById ('email').textContent = Email;"
-        body.products =[];
+    //on vient récupérer tous les champs input du formulaire
+    let body = {};
+    body.contact = {};
+    body.contact.lastName = document.getElementById('lastName').value;
+    body.contact.firstName = document.getElementById('firstName').value;
+    body.contact.address = document.getElementById('address').value;
+    body.contact.city = document.getElementById('city').value;
+    body.contact.email = document.getElementById('email').value;
+    body.products = [];
 
-    
-       il faut parcourir le panier pour rajouter les id du produit 
-       //fonction qui parcourt le panier et qui demande et attends le id du produit  
-async function rechercheAffiche() {
+
+    //il faut parcourir le panier pour rajouter les id du produit 
+    //fonction qui parcourt le panier et qui demande et attends le id du produit  
     for (let line of panier) {
-        line.product = await product._id(line.id);
+        body.products.push(line.id);
     }
-    afficherPanier();
-}
-faire la boucle for
-let _id = document.querySelector('#id');
-	        //pour dérouler le tableau, i=_id
-	        for (let i of product.id)
+    console.log(body);
 
-body.products.push(...) ok pas supprimer
-    
-        Il faut faire un POST avec fetch method: 'POST'
-        fetch(url, options)
-            .then(res => res.json())
-            .then(res => console.log(res));
-            )
-     }*/  
+//pour envoyer body vers l'api avec la méthode POST
+let url = 'http://localhost:3000/api/products/order/';
+let options = {};
+options.method = 'POST';
+options.body = JSON.stringify (body); //ça transforme l'objet body en une chaine de caractères
+options.headers = { //objet pour spécifier que c'est en json
+    'Content-Type' : 'application/json'
+}
+
+fetch(url, options)
+    .then(res => res.json())
+    .then(res => {
+        console.log(res));
+//aller à la page html panier
+window.location = 'confirmation.html?num='+num=res ;
+    } 
+  
+}
 
 //Message d'erreur avec regex si erreur quand il indique son nom
-function test() {
+/*function test() {
     try {
          var regEx = /firstName|lastName/city;
          var str = "number";
@@ -184,13 +188,12 @@ function verification(){
 	return true;
 }
 
-afficherPanier();
-            //enregistrer dans le local storage
-            localStorage.panier = JSON.stringify(panier);
-}
 
+ //FAIRE envoyer le n° de la commande dans l'url/autre page
 rechercheAffiche();
 
-   //aller à la page html panier
-   window.location = 'confirmation.html';
-}
+ 
+
+*/
+
+afficherPanier();
