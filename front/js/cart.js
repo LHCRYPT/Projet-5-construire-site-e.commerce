@@ -142,6 +142,8 @@ window.location = 'confirmation.html?num='+num=res ;
     } 
   
 }
+//FAIRE envoyer le n° de la commande dans l'url/autre page
+
 
 //Message d'erreur avec regex si erreur quand il indique son nom
 /*function test() {
@@ -189,7 +191,7 @@ function verification(){
 }
 
 
- //FAIRE envoyer le n° de la commande dans l'url/autre page
+ 
 rechercheAffiche();
 
  
