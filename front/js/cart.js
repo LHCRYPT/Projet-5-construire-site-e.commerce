@@ -124,7 +124,25 @@ function envoyer() {
     }
     console.log(body);
 
+    //pour envoyer body vers l'api avec la méthode POST
+    let url = 'http://localhost:3000/api/products/order/';
+    let options = {};
+    options.method = 'POST';
+    options.body = JSON.stringify(body); //ça transforme l'objet body en une chaine de caractères
+    options.headers = { //objet pour spécifier que c'est en json
+        'Content-Type': 'application/json'
+    }
 
+    fetch(url, options)
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            //envoyer le n° de la commande dans l'url/autre page
+            window.location = 'confirmation.html?commande=' + res.orderId;
+        });
+}
+rechercheAffiche();
+afficherPanier();
 
 //Message d'erreur avec regex si erreur quand il indique son nom
 /*function test() {
