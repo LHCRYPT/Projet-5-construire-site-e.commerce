@@ -139,7 +139,13 @@ fetch(url, options)
         console.log(res));
 //envoyer le n° de la commande dans l'url/autre page
 /*window.location = 'confirmation.html?num='+num=res ;*/
-window.location = 'confirmation.html?number=
+window.location = 'confirmation.html?number='+num=res ;
+let text;
+if (confirm("Press a button!") == true) {
+  text = "You pressed OK!";
+} else {
+  text = "You canceled!";
+}
     } 
   
     afficherPanier();
