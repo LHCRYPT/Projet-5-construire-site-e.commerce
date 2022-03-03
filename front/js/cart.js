@@ -138,10 +138,11 @@ fetch(url, options)
     .then(res => {
         console.log(res));
 //envoyer le n° de la commande dans l'url/autre page
-window.location = 'confirmation.html?num='+num=res ;
+/*window.location = 'confirmation.html?num='+num=res ;*/
+window.location = 'confirmation.html?number=
     } 
   
-
+    afficherPanier();
 
 //Message d'erreur avec regex si erreur quand il indique son nom
 /*function test() {
