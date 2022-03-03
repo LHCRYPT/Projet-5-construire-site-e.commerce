@@ -137,12 +137,10 @@ fetch(url, options)
     .then(res => res.json())
     .then(res => {
         console.log(res));
-//aller à la page html panier
+//envoyer le n° de la commande dans l'url/autre page
 window.location = 'confirmation.html?num='+num=res ;
     } 
   
-}
-//FAIRE envoyer le n° de la commande dans l'url/autre page
 
 
 //Message d'erreur avec regex si erreur quand il indique son nom
