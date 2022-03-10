@@ -145,7 +145,7 @@ rechercheAffiche();
 afficherPanier();
 
 //Message d'erreur avec regex si erreur quand il indique son nom
-/*function test() {
+function test() {
     try {
          var regEx = /firstName|lastName/city;
          var str = "number";
@@ -188,12 +188,4 @@ function verification(){
 	}
 	return true;
 }
-
-
- 
-
-
- 
-
-*/
 
