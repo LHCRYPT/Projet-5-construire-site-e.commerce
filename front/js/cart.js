@@ -106,6 +106,7 @@ function afficherPanier() {
 
 //prendre les infos de la pers
 function envoyer() {
+    verification();
     //on vient récupérer tous les champs input du formulaire
     let body = {};
     body.contact = {};
@@ -138,37 +139,41 @@ function envoyer() {
         .then(res => {
             console.log(res)
             //envoyer le n° de la commande dans l'url/autre page
-            window.location = 'confirmation.html?commande=' + res.orderId;
+        //    window.location = 'confirmation.html?commande=' + res.orderId;
         });
 }
 rechercheAffiche();
 afficherPanier();
 
 //Message d'erreur avec regex si il y a des erreurs dans le formulaire
+//message erreur doit s'afficher sur la page, enlever alert, regex pour erreur si on met un nbr
 
 function verification(){
  
-	var nom = document.formulaire.lastName.value;
-	var prenom = document.formulaire.firstName.value;
-	var address = document.formulaire.address.value;
-	var mail = document.formulaire.email.value;
+	let nom = document.getElementById('lastName').value;
+	let prenom = document.getElementById('firstName').value;
+	let address = document.getElementById('address').value;
+	let email = document.getElementById('email').value;
  
-	var Ermail = /^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/
-	var Erage = /[0-9]{3}/;
+	let ermail = '/^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/'; 
+    let regexEmail = new RegExp(ermail) 
+	//let Erage = /[0-9]{3}/;
  
-	if(lastName.length==0){ //si le nbr de caractète est égale à 0, il indique que c'est faux
+	if(nom.length==0){ //si le nbr de caractète est égale à 0, il indique que c'est faux
 		alert("Le nom saisi est incorrect");
 		return false;
-	}else if(firstName.length==0){
+	}else if(prenom.length==0){
 		alert("Le prénom saisi est incorrect");
 		return false;
 	}else if(address.length==0){
 		alert("addresse incorrecte");
 		return false;
 	}else if(email.length==0){
-		alert("l'Email est incorrect");
+		alert("L'email est incorrect");
 		return false;
-	}
+    }else if(regexEmail.test(email)== false) {
+    alert("L'email est incorrect");
+}
 	return true;
 }
 
