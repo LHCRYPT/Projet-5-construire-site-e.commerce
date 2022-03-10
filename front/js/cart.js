@@ -144,25 +144,8 @@ function envoyer() {
 rechercheAffiche();
 afficherPanier();
 
-//Message d'erreur avec regex si erreur quand il indique son nom
-function test() {
-    try {
-         var regEx = /firstName|lastName/city;
-         var str = "number";
-         if(!regEx.test(str)) return null;
-         var a = new Array();
-         var result;
-         var o=0;
-         while((result = regEx.exec(str)) != null) {
-                 a.push(result.index+o);
-                 str=str.substr(result.index+result[0].length);
-                 o+=result.index+result[0].length;
-         }
-         return a;
-} catch(exp) {
-         alert(exp.message);
-}
-OU
+//Message d'erreur avec regex si il y a des erreurs dans le formulaire
+
 function verification(){
  
 	var nom = document.formulaire.lastName.value;
@@ -173,16 +156,16 @@ function verification(){
 	var Ermail = /^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/
 	var Erage = /[0-9]{3}/;
  
-	if(lastName == ""){
+	if(lastName.length==0){ //si le nbr de caractète est égale à 0, il indique que c'est faux
 		alert("Le nom saisi est incorrect");
 		return false;
-	}else if(firstName == ""){
+	}else if(firstName.length==0){
 		alert("Le prénom saisi est incorrect");
 		return false;
-	}else if(address == ""){
+	}else if(address.length==0){
 		alert("addresse incorrecte");
 		return false;
-	}else if(email == ""){
+	}else if(email.length==0){
 		alert("l'Email est incorrect");
 		return false;
 	}
