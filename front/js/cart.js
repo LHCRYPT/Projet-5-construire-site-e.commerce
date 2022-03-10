@@ -145,8 +145,8 @@ function envoyer() {
 rechercheAffiche();
 afficherPanier();
 
-//Message d'erreur avec regex si il y a des erreurs dans le formulaire
-//message erreur doit s'afficher sur la page, enlever alert, regex pour erreur si on met un nbr
+//Message d'erreur avec regex si il y a des erreurs dans le formulaire C'EST FAIT
+//A FAIRE : message erreur doit s'afficher sur la page, enlever alert, regex pour erreur si on met un nbr
 
 function verification(){
  
