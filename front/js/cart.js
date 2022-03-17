@@ -139,156 +139,59 @@ function envoyer() {
         .then(res => {
             console.log(res)
             //envoyer le n° de la commande dans l'url/autre page
-        //    window.location = 'confirmation.html?commande=' + res.orderId;
+          window.location = 'confirmation.html?commande=' + res.orderId;
         });
 }
 rechercheAffiche();
 afficherPanier();
 
-//Message d'erreur avec regex si il y a des erreurs dans le formulaire C'EST FAIT
-//A FAIRE : message erreur doit s'afficher sur la page, enlever alert, regex pour erreur si on met un nbr
+//Message d'erreur avec regex si il y a des erreurs dans le formulaire
+//message erreur doit s'afficher sur la page, enlever alert, regex pour erreur si on met un nbr
 
 function verification(){
  
 	let nom = document.getElementById('lastName').value;
-	let prenom = document.getElementById('firstName').value;
+	let prenom = document.getElementById('firstName').value; //prénom
 	let address = document.getElementById('address').value;
+    let ville = document.getElementById('city').value;
 	let email = document.getElementById('email').value;
- 
-	let ermail = '/^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/'; 
-    let regexEmail = new RegExp(ermail) 
+ console.log(prenom);
+	
 	//let Erage = /[0-9]{3}/;
- 
-	if(nom.length==0){ //si le nbr de caractète est égale à 0, il indique que c'est faux
-		alert("Le nom saisi est incorrect");
+
+    var regexEmail = new RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+(\.([a-zA-Z]){2,})$');
+
+    //on vide tous les messages d'erreurs
+    document.getElementById("firstNameErrorMsg").textContent="";
+    document.getElementById("lastNameErrorMsg").textContent="";
+    document.getElementById("addressErrorMsg").textContent="";
+    document.getElementById("cityErrorMsg").textContent="";
+    document.getElementById("emailErrorMsg").textContent="";
+    
+	if(prenom.length==0){ //si le nbr de caractère est égale à 0, il indique que c'est faux
+	        document.getElementById("firstNameErrorMsg").textContent="Le prénom saisi est incorrect";
+        	return false;
+          
+	}else if(nom.length==0){
+		 document.getElementById("lastNameErrorMsg").textContent="Le nom saisi est incorrect";
 		return false;
-	}else if(prenom.length==0){
-		alert("Le prénom saisi est incorrect");
-		return false;
+
 	}else if(address.length==0){
-		alert("addresse incorrecte");
+		 document.getElementById("addressErrorMsg").textContent="L'adresse saisie est incorrecte";
 		return false;
+
+    }else if(ville.length==0){
+		 document.getElementById("cityErrorMsg").textContent="La ville saisie est incorrecte";
+		return false;
+
 	}else if(email.length==0){
-		alert("L'email est incorrect");
+		document.getElementById("emailErrorMsg").textContent="L'email saisi est vide";
 		return false;
+
     }else if(regexEmail.test(email)== false) {
-    alert("L'email est incorrect");
+    document.getElementById("emailErrorMsg").textContent="L'email saisi est incorrect";
+    return false;
 }
 	return true;
 }
 
-//ce que j'ai fait
-if (homme==false && femme==false) {
-    tooltip[0].style.visibility='visible';
-    return false;
-   }
-
-   // Il y a plusieurs façon de sélectionner un nœud DOM ; ici on récupère
-// le formulaire et le champ d'e-mail ainsi que l'élément span
-// dans lequel on placera le message d'erreur avec API
-
-var form  = document.getElementsByTagName('form')[0];
-var email = document.getElementById('email');
-var error = document.querySelector('.error');
-
-email.addEventListener("input", function (event) {
-  // Chaque fois que l'utilisateur saisit quelque chose
-  // on vérifie la validité du champ e-mail.
-  if (email.validity.valid) {
-    // S'il y a un message d'erreur affiché et que le champ
-    // est valide, on retire l'erreur
-    error.innerHTML = ""; // On réinitialise le contenu
-    error.className = "error"; // On réinitialise l'état visuel du message
-  }
-}, false);
-form.addEventListener("submit", function (event) {
-  // Chaque fois que l'utilisateur tente d'envoyer les données
-  // on vérifie que le champ email est valide.
-  if (!email.validity.valid) {
-
-    // S'il est invalide, on affiche un message d'erreur personnalisé
-    error.innerHTML = "Mettre une adresse e-mail correcte";
-    error.className = "error active";
-    // Et on empêche l'envoi des données du formulaire
-    event.preventDefault();
-  }
-}, false);
-
-
-//sans API
-// Il existe moins de méthode pour sélectionner un nœud DOM
-// avec les navigateurs historiques
-var form  = document.getElementsByTagName('form')[0];
-var email = document.getElementById('mail');
-
-// Ce qui suit est une bidouille pour atteindre le prochain nœud Element dans le DOM
-// Attention à cette méthode, elle peut permettre de construire une boucle
-// infinie. Pour les navigateurs plus récents, on utilisera element.nextElementSibling
-var error = email;
-while ((error = error.nextSibling).nodeType != 1);
-
-// Pour respecter la spécification HTML5
-var emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-// De nombreux navigateurs historiques ne supportent pas la méthode
-// addEventListener. Voici une méthode simple (il en existe d'autres)
-function addEvent(element, event, callback) {
-  var previousEventCallBack = element["on"+event];
-  element["on"+event] = function (e) {
-    var output = callback(e);
-
-    // Une fonction de rappel (callback) qui renvoie `false`
-    // pour arrêter la chaîne des callback
-    // et interrompre l'exécution du callback d'événement.
-    if (output === false) return false;
-
-    if (typeof previousEventCallBack === 'function') {
-      output = previousEventCallBack(e);
-      if(output === false) return false;
-    }
-  }
-};
-
-// On peut désormais reconstruire notre validation de contrainte
-// Étant donné qu'on n'utilise pas la pseudo-classe CSS, il faut
-// explicitement gérer la classe valid/invalid du champ e-mail
-addEvent(window, "load", function () {
-  // Ici, on teste si le champ est vide (rappel : le champ n'est pas obligatoire)
-  // S'il ne l'est pas, on vérifie que son contenu est une adresse e-mail valide.
-  var test = email.value.length === 0 || emailRegExp.test(email.value);
-
-  email.className = test ? "valid" : "invalid";
-});
-
-// Ici, on définit ce qui se passe lorsque l'utilisateur
-// saisit quelque chose dans le champ
-addEvent(email, "keyup", function () {
-  var test = email.value.length === 0 || emailRegExp.test(email.value);
-  if (test) {
-    email.className = "valid";
-    error.innerHTML = "";
-    error.className = "error";
-  } else {
-    email.className = "invalid";
-  }
-});
-
-// Ici, on définit ce qui se passe lorsque l'utilisateur
-// tente d'envoyer les données du formulaire
-addEvent(form, "submit", function () {
-  var test = email.value.length === 0 || emailRegExp.test(email.value);
-
-  if (!test) {
-    email.className = "invalid";
-    error.innerHTML = "Merci d'écrire une adresse e-mail valide.";
-    error.className = "error active";
-
-    // Certains navigateurs historiques ne supportent pas
-    // la méthode event.reventDefault()
-    return false;
-  } else {
-    email.className = "valid";
-    error.innerHTML = "";
-    error.className = "error";
-  }
-});
