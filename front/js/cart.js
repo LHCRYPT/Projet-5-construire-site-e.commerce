@@ -207,7 +207,7 @@ form.addEventListener("submit", function (event) {
   if (!email.validity.valid) {
 
     // S'il est invalide, on affiche un message d'erreur personnalisé
-    error.innerHTML = "J'attends une adresse e-mail correcte, mon cher&nbsp;!";
+    error.innerHTML = "Mettre une adresse e-mail correcte";
     error.className = "error active";
     // Et on empêche l'envoi des données du formulaire
     event.preventDefault();
