@@ -177,3 +177,36 @@ function verification(){
 	return true;
 }
 
+var verif = RegExp("^([a-zA-Z0-9_-])+([.]?[a-zA-Z0-9_-]{1,})*@([a-zA-Z0-9-_]{2,}[.])+[a-zA-Z]{2,3}$");
+function verification() {
+   if(document.formulaire.nom.value == "") {
+      alert("var verif = RegExp("^([a-zA-Z0-9_-])+([.]?[a-zA-Z0-9_-]{1,})*@([a-zA-Z0-9-_]{2,}[.])+[a-zA-Z]{2,3}$");
+function verification() {
+   if(document.formulaire.nom.value == "") {
+      alert("Veuillez entrer votre NOM svp");
+      document.formulaire.nom.focus();
+      return false;
+   }
+      if(document.formulaire.mail.value == "") {
+      alert("Veuillez entrer votre MAIL svp");
+      document.formulaire.mail.focus();
+      return false;
+	  }
+ 	if (verif.exec(document.formulaire.mail.value) == null)
+ 	{
+	alert("Votre email est incorrecte");
+ 	return false;
+ } ");
+      document.formulaire.nom.focus();
+      return false;
+   }
+      if(document.formulaire.mail.value == "") {
+      alert("Veuillez entrer votre MAIL svp");
+      document.formulaire.mail.focus();
+      return false;
+	  }
+ 	if (verif.exec(document.formulaire.mail.value) == null)
+ 	{
+	alert("Votre email est incorrecte");
+ 	return false;
+ }
