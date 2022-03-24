@@ -106,7 +106,9 @@ function afficherPanier() {
 
 //prendre les infos de la pers
 function envoyer() {
-    verification();
+    if(verification()){
+
+    
     //on vient récupérer tous les champs input du formulaire
     let body = {};
     body.contact = {};
@@ -140,13 +142,13 @@ function envoyer() {
             console.log(res)
             //envoyer le n° de la commande dans l'url/autre page
           window.location = 'confirmation.html?commande=' + res.orderId;
-        });
+        });}
 }
 rechercheAffiche();
 afficherPanier();
 
 //Message d'erreur avec regex si il y a des erreurs dans le formulaire
-//message erreur doit s'afficher sur la page, enlever alert, regex pour erreur si on met un nbr
+//message erreur doit s'afficher sur la page, regex pour erreur si on met un nbr
 
 function verification(){
  
